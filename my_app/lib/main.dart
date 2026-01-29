@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // Remove a faixa de debug
+      debugShowCheckedModeBanner: false, 
       theme: ThemeData(
         brightness: Brightness
-            .dark, // Smartwatches usam fundo preto para economizar bateria
+            .dark,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.orange,
           brightness: Brightness.dark,
@@ -36,25 +36,25 @@ class _WearAudioPageState extends State<WearAudioPage> {
   final AudioPlayer _audioPlayer = AudioPlayer();
 
   Future<void> _playAlert() async {
-    // Alerta de segurança conforme o roteiro da empresa Doma
+    // Alerta de segurança
     await _audioPlayer.play(AssetSource('sounds/relaxing-guitar-loop.mp3'));
   }
 
   @override
   Widget build(BuildContext context) {
-    // Pegamos o tamanho da tela para garantir que o conteúdo caiba no círculo
+
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: Container(
-          // Garante que o conteúdo não encoste nas bordas físicas do relógio
+
           padding: const EdgeInsets.all(12),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Ícone de Localização/Status (como na sua imagem)
+              // Ícone de Localização
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -68,7 +68,7 @@ class _WearAudioPageState extends State<WearAudioPage> {
               ),
               const SizedBox(height: 8),
 
-              // Texto Principal (Destaque)
+              // Texto Principal
               const Text(
                 "Assistente",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -76,7 +76,6 @@ class _WearAudioPageState extends State<WearAudioPage> {
 
               const SizedBox(height: 15),
 
-              // Botão de Ação Circular e Grande (Ideal para Wear OS)
               GestureDetector(
                 onTap: _playAlert,
                 child: Container(
